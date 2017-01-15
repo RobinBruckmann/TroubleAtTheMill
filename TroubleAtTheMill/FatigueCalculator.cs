@@ -76,6 +76,7 @@ namespace TroubleAtTheMill
 
         private bool isMouseHoveringDecks()
         {
+            //System.Drawing.Point mouse = User32.GetMousePos();
             Point mouse = getMousePos();
 
             if (mouse.X > 112.2 && mouse.X < 131.5 && 
@@ -112,8 +113,8 @@ namespace TroubleAtTheMill
             double yOffset = EMPIRICAL_Y_OFFSET;
 
             Point local = new Point(
-                (pos.X - xCenter) * scale + xOffset,
-                (pos.Y - yCenter) * scale * -1 + yOffset);  //invert y axis (up should be positive, dammit)
+                (pos.X - xCenter - gameBoard.X) * scale + xOffset,
+                (pos.Y - yCenter- gameBoard.Y) * scale * -1 + yOffset);  //invert y axis (up should be positive, dammit)
 
             return local;
         }
